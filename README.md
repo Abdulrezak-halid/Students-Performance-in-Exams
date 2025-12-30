@@ -67,7 +67,7 @@ tanh(z) = (e^z - e^(-z)) / (e^z + e^(-z))
 tanh'(z) = 1 - tanh²(z)
 ```
 
-#### Linear (Output Layer)
+#### Linear 
 
 ```
 f(z) = z
@@ -117,7 +117,7 @@ Zincir kuralı uygulaması:
 ∂L/∂b[l] = (1/m) * Σ δ[l]
 ```
 
-### 4. Gradient Descent Güncellemesi (Gradient Descent Update)
+### 4. Gradient Descent Güncellemesi
 
 ```
 W[l] = W[l] - α * ∂L/∂W[l]
@@ -172,7 +172,7 @@ _Grafik, eğitim ve doğrulama kayıplarının epoch'lar boyunca nasıl değişt
 
 ![Metrics Comparison](results/metrics_comparison.png)
 
-#### Test Seti Performansı (Test Set Performance)
+#### Test Seti Performansı 
 
 | Ders (Subject)         | RMSE (Normalized) | R² Score   |
 | ---------------------- | ----------------- | ---------- |
@@ -212,7 +212,7 @@ _Hata dağılımları sıfır etrafında simetrik olup, modelin sistematik bir b
 
 ## 💻 Kullanım
 
-### Gereksinimler (Requirements)
+### Gereksinimler 
 
 ```bash
 # Virtual environment oluştur
@@ -243,7 +243,7 @@ python src/train.py
 python src/visualize.py
 ```
 
-### Kendi Parametrelerinizle Eğitim (Custom Training)
+### Kendi Parametrelerinizle Eğitim 
 
 ```python
 from src.train import train_model
@@ -261,7 +261,7 @@ train_model(
 
 ---
 
-## 📁 Proje Yapısı (Project Structure)
+## 📁 Proje Yapısı
 
 ```
 Students-Performance-in-Exams/
@@ -336,23 +336,6 @@ Görselleştirme fonksiyonları:
 - `plot_predictions_vs_actual()`: Tahmin vs gerçek scatter plots
 - `plot_error_distribution()`: Hata histogramları
 - `plot_metrics_comparison()`: Metrik karşılaştırma bar grafikleri
-
-## 📚 Referanslar (References)
-
-1. **Veri Seti:**
-
-   - Kaggle - Students Performance in Exams
-   - https://www.kaggle.com/datasets/spscientist/students-performance-in-exams
-
-2. **Teorik Kaynaklar:**
-
-   - Nielsen, M. (2015). Neural Networks and Deep Learning
-   - Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep Learning
-   - Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning representations by back-propagating errors
-
-3. **Implementasyon Kaynakları:**
-   - NumPy Documentation: https://numpy.org/doc/
-   - Matplotlib Documentation: https://matplotlib.org/
 
 ## 👥 Proje Bilgileri
 
