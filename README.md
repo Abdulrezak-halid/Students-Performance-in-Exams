@@ -287,7 +287,7 @@ Students-Performance-in-Exams/
 │   └── metrics_comparison.png           # Metrik karşılaştırması
 │
 ├── venv/                                # Virtual environment
-├── requirements.txt                      # Python gereksinimleri
+├── requirements.txt                     # Python gereksinimleri
 ├── .gitignore                           # Git ignore dosyası
 └── README.md                            # Bu dosya
 ```
