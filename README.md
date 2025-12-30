@@ -90,7 +90,7 @@ L = (1/2m) * Σ(ŷ - y)²
 
 ### 3. Geri Yayılım (Backpropagation) - Zincir Kuralı (Chain Rule)
 
-#### Çıktı Katmanı (Output Layer)
+#### Çıktı Katmanı
 
 ```
 δ[L] = ∂L/∂z[L] = (a[L] - y) ⊙ f'(z[L])
@@ -124,7 +124,7 @@ W[l] = W[l] - α * ∂L/∂W[l]
 b[l] = b[l] - α * ∂L/∂b[l]
 ```
 
-**Nerede (Where):**
+**Nerede :**
 
 - `α`: Öğrenme oranı (learning rate)
 
