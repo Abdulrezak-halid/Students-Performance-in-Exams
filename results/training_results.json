@@ -1,0 +1,35 @@
+{
+    "model_config": {
+        "input_size": 17,
+        "hidden_size": 64,
+        "output_size": 3,
+        "activation": "relu",
+        "learning_rate": 0.01,
+        "epochs": 1000,
+        "batch_size": 32
+    },
+    "train_metrics": {
+        "math_rmse": 0.7499915370896693,
+        "reading_rmse": 0.7610534586222564,
+        "writing_rmse": 0.7135225801944056,
+        "math_r2": 0.44418968014191307,
+        "reading_r2": 0.4295869402639587,
+        "writing_r2": 0.5051307772875524
+    },
+    "val_metrics": {
+        "math_rmse": 1.0096503856400845,
+        "reading_rmse": 1.0394130255505147,
+        "writing_rmse": 0.9415778027865728,
+        "math_r2": -0.06997073795051612,
+        "reading_r2": -0.12388444803991261,
+        "writing_r2": 0.019345907933298157
+    },
+    "test_metrics": {
+        "math_rmse": 1.0578271965204888,
+        "reading_rmse": 1.0846154927544407,
+        "writing_rmse": 1.0270582835479392,
+        "math_r2": -0.1336961120714426,
+        "reading_r2": -0.21806458545825746,
+        "writing_r2": -0.10279261614526458
+    }
+}
