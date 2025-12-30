@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data
+*.csv.bak
+
+# Model files
+*.pkl
+*.h5
+
+# Results
+*.png.bak
+*.jpg.bak
+
+# OS
+.DS_Store
+Thumbs.db
