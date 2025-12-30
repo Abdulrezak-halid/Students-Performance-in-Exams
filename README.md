@@ -345,9 +345,9 @@ Görselleştirme fonksiyonları:
 
 ## 📊 Sonuçlar ve Değerlendirme
 
-### Başarılar (Achievements)
+### Başarılar
 
-- ✅ Sinir ağı tamamen sıfırdan (from scratch) NumPy ile implementa edildi
+- ✅ Sinir ağı NumPy ile implementa edildi
 - ✅ Tüm derste işlenen konular uygulandı (activation functions, chain rule, gradient descent, feedforward, backpropagation)
 - ✅ Model eğitim setinde öğrenme gösterdi (R² = 0.46)
 - ✅ Kapsamlı görselleştirmeler ve detaylı README hazırlandı
