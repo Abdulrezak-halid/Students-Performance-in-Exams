@@ -351,4 +351,4 @@ Görselleştirme fonksiyonları:
 - ✅ Tüm derste işlenen konular uygulandı (activation functions, chain rule, gradient descent, feedforward, backpropagation)
 - ✅ Model eğitim setinde öğrenme gösterdi (R² = 0.46)
 - ✅ Kapsamlı görselleştirmeler ve detaylı README hazırlandı
-- ✅ Modüler ve temiz kod yapısı oluşturuldu
+- ✅ Modüler ve temiz kod yapısı 
