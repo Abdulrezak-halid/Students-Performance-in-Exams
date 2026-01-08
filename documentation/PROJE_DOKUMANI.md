@@ -219,39 +219,6 @@ Output Layer (3 neurons, Linear activation)
 
 ---
 
-## 7. PROJE DOSYA YAPISI
-
-```
-Students-Performance-in-Exams/
-│
-├── data/
-│   └── StudentsPerformance.csv
-│
-├── src/
-│   ├── data_preprocessing.py    # Veri ön işleme
-│   ├── neural_network.py        # Sinir ağı implementasyonu
-│   ├── train.py                 # Eğitim scripti
-│   └── visualize.py             # Görselleştirme
-│
-├── models/
-│   ├── neural_network.pkl       # Eğitilmiş model
-│   └── preprocessor.pkl         # Preprocessor
-│
-├── results/
-│   ├── training_results.json
-│   ├── training_curves.png
-│   ├── predictions_vs_actual.png
-│   ├── error_distribution.png
-│   └── metrics_comparison.png
-│
-├── README.md                    # Detaylı dokümantasyon
-├── requirements.txt
-├── run.sh                       # Quick start script
-└── QUICKSTART.py                # Kullanım rehberi
-```
-
----
-
 ## 8. NASIL ÇALIŞTIRILIR
 
 ```bash
@@ -285,19 +252,10 @@ python src/visualize.py
 
 ### Başarılar
 
-- ✅ Sinir ağı tamamen sıfırdan NumPy ile implementa edildi
 - ✅ Derste öğretilen tüm kavramlar uygulandı
 - ✅ Model eğitim setinde öğrenme gösterdi (R² = 0.46)
 - ✅ Kapsamlı görselleştirmeler hazırlandı
 - ✅ Detaylı dokümantasyon yazıldı
-
-### İyileştirme Potansiyeli
-
-- Daha fazla epoch ile eğitim
-- Learning rate scheduling
-- Farklı optimizasyon algoritmaları (Adam, Momentum)
-- Dropout regularizasyonu
-- Daha derin ağ mimarileri
 
 ---
 
