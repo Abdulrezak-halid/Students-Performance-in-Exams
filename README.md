@@ -250,7 +250,7 @@ from src.train import train_model
 
 train_model(
     data_path='data/StudentsPerformance.csv',
-    hidden_size=64,          # Gizli katman boyutu
+    hidden_size=64,           # Gizli katman boyutu
     activation='relu',        # 'relu', 'sigmoid', veya 'tanh'
     learning_rate=0.01,       # Öğrenme oranı
     epochs=1000,              # Epoch sayısı
