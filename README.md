@@ -2,8 +2,8 @@
 
 ## 📋 Project Description
 
-This project implements a neural network using NumPy to predict students' exam performance based on the “Students Performance in Exams” dataset obtained from Kaggle
-The project was developed as a final project for the Neural Networks course.
+##### This project implements a neural network using NumPy to predict students' exam performance based on the “Students Performance in Exams” dataset obtained from Kaggle
+##### The project was developed as a final project for the Neural Networks course.
 ---
 
 ## 📊 Dataset
