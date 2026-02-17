@@ -1,25 +1,24 @@
 # Students Performance in Exams - Neural Network Prediction Model
 
-## 📋 Proje Açıklaması
+## 📋 Project Description
 
-Bu proje, Kaggle'dan alınan "Students Performance in Exams" veri seti kullanılarak öğrencilerin sınav performanslarını tahmin eden bir sinir ağı modelini NumPy kullanarak implementa eder. Proje, SİNİR AĞLARI dersi final projesi kapsamında geliştirilmiştir.
-
-This project implements a **neural network** using NumPy to predict student exam performance using the "Students Performance in Exams" dataset from Kaggle. Developed as a final project for the Neural Networks course.
-
+This project implements a neural network using NumPy to predict students' exam performance based on the “Students Performance in Exams” dataset obtained from Kaggle
+The project was developed as a final project for the Neural Networks course.
 ---
 
-## 📊 Veri Seti (Dataset)
+## 📊 Dataset
 
-### Veri Seti Bilgileri
+### Dataset Information
 
-- **Kaynak (Source):** Kaggle - Students Performance in Exams [https://www.kaggle.com/datasets/spscientist/students-performance-in-exams]
-- **Örneklem Sayısı (Samples):** 1,000 öğrenci
-- **Özellik Sayısı (Features):** 8 sütun (5 kategorik, 3 hedef değişken)
+- **Source**: Kaggle – Students Performance in Exams
+- [https://www.kaggle.com/datasets/spscientist/students-performance-in-exams]
+- **Number of Samples:** 1,000 students
+- **Number of Features:** 8 columns (5 categorical, 3 target variables)
 
 
-## 🧠 Model Mimarisi
+## 🧠 Model Architecture
 
-### Ağ Yapısı
+### Network Structure
 
 ```
 Input Layer (17 neurons)
@@ -29,22 +28,22 @@ Hidden Layer (64 neurons, ReLU activation)
 Output Layer (3 neurons, Linear activation)
 ```
 
-### Detaylı Mimari
+### Detailed Architecture
 
-| Katman (Layer) | Boyut (Size) | Aktivasyon (Activation) | Parametre Sayısı (Parameters) |
+| Layer          | Size         |      Activation         |         Parameters            |
 | -------------- | ------------ | ----------------------- | ----------------------------- |
 | Input          | 17           | -                       | -                             |
 | Hidden         | 64           | ReLU                    | W: 64×17, b: 64×1             |
 | Output         | 3            | Linear                  | W: 3×64, b: 3×1               |
 
-**Toplam Parametre Sayısı :** 1,347
+**Total Number of Parameters :** 1,347
 
 - Hidden layer weights: 1,088 (64 × 17)
 - Hidden layer biases: 64
 - Output layer weights: 192 (3 × 64)
 - Output layer biases: 3
 
-### 1. Aktivasyon Fonksiyonları
+### 1. Activation Functions
 
 #### ReLU (Rectified Linear Unit)
 
@@ -74,7 +73,7 @@ f(z) = z
 f'(z) = 1
 ```
 
-### 2. Kayıp Fonksiyonu
+### 2. Loss Function
 
 **Mean Squared Error (MSE):**
 
@@ -82,59 +81,59 @@ f'(z) = 1
 L = (1/2m) * Σ(ŷ - y)²
 ```
 
-**Nerede :**
+**Where :**
 
 - `m`: Batch boyutu
 - `ŷ`: Tahmin edilen değer
 - `y`: Gerçek değer
 
-### 3. Geri Yayılım (Backpropagation) - Zincir Kuralı (Chain Rule)
+### 3. Backpropagation - Chain Rule
 
-#### Çıktı Katmanı
+#### Output Layer
 
 ```
 δ[L] = ∂L/∂z[L] = (a[L] - y) ⊙ f'(z[L])
 ```
 
-MSE + Linear activation için:
+For MSE + Linear activation:
 
 ```
 δ[L] = a[L] - y
 ```
 
-#### Gizli Katmanlar (Hidden Layers)
+#### Hidden Layers
 
-Zincir kuralı uygulaması:
+Chain rule application:
 
 ```
 δ[l] = (W[l+1]^T @ δ[l+1]) ⊙ f'(z[l])
 ```
 
-#### Gradyanlar (Gradients)
+#### Gradients
 
 ```
 ∂L/∂W[l] = (1/m) * δ[l] @ a[l-1]^T
 ∂L/∂b[l] = (1/m) * Σ δ[l]
 ```
 
-### 4. Gradient Descent Güncellemesi
+### 4. Gradient Descent Update
 
 ```
 W[l] = W[l] - α * ∂L/∂W[l]
 b[l] = b[l] - α * ∂L/∂b[l]
 ```
 
-**Nerede :**
+**Where :**
 
-- `α`: Öğrenme oranı (learning rate)
+- `α`: learning rate
 
 ---
 
-## 📈 Eğitim Süreci
+## 📈 Training Process
 
-### Hiperparametreler
+### Hyperparameters
 
-| Parametre             | Değer             |
+| Parameter             | Value             |
 | --------------------- | ----------------- |
 | Hidden Layer Size     | 64                |
 | Activation Function   | ReLU              |
@@ -144,15 +143,15 @@ b[l] = b[l] - α * ∂L/∂b[l]
 | Weight Initialization | He Initialization |
 | Random Seed           | 42                |
 
-### Ağırlık Başlatma
+### Weight Initialization
 
-**He Initialization (ReLU için önerilir):**
+**He Initialization (recommended for ReLU):**
 
 ```python
 W[l] ~ N(0, sqrt(2/n[l-1]))
 ```
 
-**Xavier Initialization (Sigmoid/Tanh için):**
+**Xavier Initialization (for Sigmoid/Tanh):**
 
 ```python
 W[l] ~ N(0, sqrt(1/n[l-1]))
@@ -160,161 +159,161 @@ W[l] ~ N(0, sqrt(1/n[l-1]))
 
 ---
 
-## 📊 Eğitim Sonuçları
+## 📊 Training Results
 
-### Eğitim ve Doğrulama Kayıpları
+### Training and Validation Loss
 
 ![Training Curves](results/training_curves.png)
 
-_Grafik, eğitim ve doğrulama kayıplarının epoch'lar boyunca nasıl değiştiğini göstermektedir. Model yakınsama göstermekte ve overfitting belirtisi gözlenmemektedir._
+_The graph shows how training and validation losses change over epochs. The model demonstrates convergence and no clear sign of overfitting is observed._
 
-### Performans Metrikleri
+### Performance Metrics
 
 ![Metrics Comparison](results/metrics_comparison.png)
 
-#### Test Seti Performansı 
+#### Test Set Performance
 
-| Ders (Subject)         | RMSE (Normalized) | R² Score   |
+| Subject                | RMSE (Normalized) | R² Score   |
 | ---------------------- | ----------------- | ---------- |
 | Mathematics            | 1.058             | -0.134     |
 | Reading                | 1.085             | -0.218     |
 | Writing                | 1.027             | -0.103     |
-| **Ortalama (Average)** | **1.057**         | **-0.152** |
+| **Average**            | **1.057**         | **-0.152** |
 
-#### Eğitim Seti Performansı
+#### Training Set Performance
 
-| Ders (Subject)         | RMSE (Normalized) | R² Score  |
+| Subject                | RMSE (Normalized) | R² Score  |
 | ---------------------- | ----------------- | --------- |
 | Mathematics            | 0.750             | 0.444     |
 | Reading                | 0.761             | 0.430     |
 | Writing                | 0.714             | 0.505     |
-| **Ortalama (Average)** | **0.742**         | **0.460** |
+| **Average**            | **0.742**         | **0.460** |
 
-**Metriklerin Yorumlanması :**
+**Interpretation of Metrics :**
 
-- **RMSE (Root Mean Squared Error):** Normalized değerler üzerinden hesaplanmıştır
-- **R² Score:** Eğitim setinde ~0.46, model temel kalıpları öğrenmiştir
-- **Not:** Test setindeki negatif R² değerleri, modelin daha fazla eğitime ihtiyaç duyabileceğini göstermektedir. Epoch sayısını artırmak veya farklı hiperparametreler denemek performansı iyileştirebilir.
+- **RMSE (Root Mean Squared Error):** Calculated using normalized values
+- **R² Score:** Approximately 0.46 on the training set, indicating the model has learned the main patterns
+- **Not:** TesNegative R² values on the test set indicate that the model may require further training. Increasing the number of epochs or experimenting with different hyperparameters may improve performance.
 
-### Tahmin vs Gerçek Değerler
+### Predictions vs Actual Values
 
 ![Predictions vs Actual](results/predictions_vs_actual.png)
 
-_Grafikler, modelin tahminlerinin gerçek değerlere ne kadar yakın olduğunu göstermektedir. Noktaların kesikli çizgiye (mükemmel tahmin) yakınlığı, modelin başarısını gösterir._
+_These graphs show how close the model’s predictions are to the actual values. The closer the points are to the dashed line (perfect prediction), the better the model performance._
 
-### Hata Dağılımı
+### Error Distribution
 
 ![Error Distribution](results/error_distribution.png)
 
-_Hata dağılımları sıfır etrafında simetrik olup, modelin sistematik bir bias'ı olmadığını göstermektedir._
+_The error distributions are symmetric around zero, indicating that the model does not exhibit systematic bias._
 
 ---
 
-## 💻 Kullanım
+## 💻 Usage
 
-### Gereksinimler 
+### Requirements 
 
 ```bash
-# Virtual environment oluştur
+# Create virtual environment
 python3 -m venv venv
 
-# Virtual environment'ı aktive et
+# Activate virtual environment
 source venv/bin/activate  # Linux/Mac
-# veya
+# or
 venv\Scripts\activate  # Windows
 
-# Gereksinimleri yükle
+# Install requirements
 pip install -r requirements.txt
 ```
 
-### Modeli Eğitme
+### Train the Model
 ```bash
-# Aktivasyonu yap
+# Activate environment
 source venv/bin/activate
 
-# Modeli eğit
+# Train the model
 python src/train.py
 ```
 
-### Görselleştirmeleri Oluşturma
+### Generate Visualizations
 
 ```bash
-# Grafikleri oluştur
+# Generate plots
 python src/visualize.py
 ```
 
-### Kendi Parametrelerinizle Eğitim 
+### Train with Custom Parameters
 
 ```python
 from src.train import train_model
 
 train_model(
     data_path='data/StudentsPerformance.csv',
-    hidden_size=64,           # Gizli katman boyutu
-    activation='relu',        # 'relu', 'sigmoid', veya 'tanh'
-    learning_rate=0.01,       # Öğrenme oranı
-    epochs=1000,              # Epoch sayısı
-    batch_size=32,            # Batch boyutu
-    random_state=42           # Rastgele seed
+    hidden_size=64,           # Hidden layer size
+    activation='relu',        # 'relu', 'sigmoid', or 'tanh'
+    learning_rate=0.01,       # Learning rate
+    epochs=1000,              # umber of epochs
+    batch_size=32,            # Batch size
+    random_state=42           # Random seed
 )
 ```
 ---
 
-## 🔍 Kod Açıklamaları
+## 🔍 Code Explanation
 
 ### 1. Data Preprocessing (`data_preprocessing.py`)
 
-**Temel Fonksiyonlar:**
+**Main Functions:**
 
-- `encode_categorical_features()`: One-hot encoding uygular
-- `normalize_features()`: Z-score normalizasyonu
-- `train_val_test_split()`: Veriyi böler
-- `denormalize_targets()`: Tahminleri orijinal ölçeğe geri döndürür
+- `encode_categorical_features()`: Applies one-hot encoding
+- `normalize_features()`: Z-score normalization
+- `train_val_test_split()`: Splits the dataset
+- `denormalize_targets()`: Converts predictions back to the original scale
 
 ### 2. Neural Network (`neural_network.py`)
 
-**Temel Sınıflar:**
+**Main Classes:**
 
-- `ActivationFunctions`: Aktivasyon fonksiyonları ve türevleri
-- `NeuralNetwork`: Ana sinir ağı sınıfı
-  - `forward_propagation()`: İleri yayılım
-  - `backward_propagation()`: Geri yayılım (chain rule)
-  - `update_parameters()`: Gradient descent güncellemesi
-  - `fit()`: Model eğitimi
-  - `predict()`: Tahmin yapma
-  - `evaluate()`: Performans değerlendirme
+- `ActivationFunctions`: Activation functions and their derivatives
+- `NeuralNetwork`: Main neural network class
+  - `forward_propagation()`: Forward pass
+  - `backward_propagation()`: Backpropagation (chain rule)
+  - `update_parameters()`: Gradient descent update
+  - `fit()`: Model training
+  - `predict()`: Prediction
+  - `evaluate()`: Performance evaluation
 
 ### 3. Training (`train.py`)
 
-Model eğitim pipeline'ı:
+Training pipeline:
 
-1. Veri yükleme ve ön işleme
-2. Model oluşturma
-3. Eğitim
-4. Değerlendirme
-5. Sonuçları kaydetme
-
+1. Data loading and preprocessing
+2. Model creation
+3. Training
+4. Evaluation
+5. Saving results
+   
 ### 4. Visualization (`visualize.py`)
 
-Görselleştirme fonksiyonları:
+Visualization functions:
 
-- `plot_training_curves()`: Eğitim/doğrulama loss grafikleri
-- `plot_predictions_vs_actual()`: Tahmin vs gerçek scatter plots
-- `plot_error_distribution()`: Hata histogramları
-- `plot_metrics_comparison()`: Metrik karşılaştırma bar grafikleri
+- `plot_training_curves()`: Training/validation loss curves
+- `plot_predictions_vs_actual()`: Prediction vs actual scatter plots
+- `plot_error_distribution()`: Error histograms
+- `plot_metrics_comparison()`: Metric comparison bar charts
 
-## 👥 Proje Bilgileri
+## Project Information
 
-**Ders :** SİNİR AĞLARI DERSİ  
-**Proje Tipi :** Final Projesi  
-**Teslim Tarihi :** 08.01.2026
+**Course :** Neural Networks  
+**Project Type :** Final Project  
+**Submission Date :** 08.01.2026
 
-## 📊 Sonuçlar ve Değerlendirme
+## 📊 Results and Evaluation
 
-### Başarılar
+### Achievements
 
-- ✅ Sinir ağı NumPy ile implementa edildi
-- ✅ Tüm derste işlenen konular uygulandı (activation functions, chain rule, gradient descent, feedforward, backpropagation)
-- ✅ Model eğitim setinde öğrenme gösterdi (R² = 0.46)
-- ✅ Kapsamlı görselleştirmeler ve detaylı README hazırlandı
-- ✅ Modüler ve temiz kod yapısı 
+- ✅ Neural network implemented using NumPy
+- ✅ All major course concepts applied (activation functions, chain rule, gradient descent, feedforward, backpropagation)
+- ✅ Model demonstrates learning on the training set (R² = 0.46)
+- ✅ Comprehensive visualizations and detailed README prepared
+- ✅ Modular and clean code structure
