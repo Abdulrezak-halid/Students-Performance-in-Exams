@@ -258,40 +258,6 @@ train_model(
     random_state=42           # Rastgele seed
 )
 ```
-
----
-
-## 📁 Proje Yapısı
-
-```
-Students-Performance-in-Exams/
-│
-├── data/
-│   └── StudentsPerformance.csv          # Veri seti
-│
-├── src/
-│   ├── data_preprocessing.py            # Veri ön işleme modülü
-│   ├── neural_network.py                # Sinir ağı implementasyonu
-│   ├── train.py                         # Eğitim scripti
-│   └── visualize.py                     # Görselleştirme modülü
-│
-├── models/
-│   ├── neural_network.pkl               # Eğitilmiş model
-│   └── preprocessor.pkl                 # Preprocessor parametreleri
-│
-├── results/
-│   ├── training_results.json            # Eğitim metrikleri
-│   ├── training_curves.png              # Eğitim grafikleri
-│   ├── predictions_vs_actual.png        # Tahmin grafikleri
-│   ├── error_distribution.png           # Hata dağılımı
-│   └── metrics_comparison.png           # Metrik karşılaştırması
-│
-├── venv/                                # Virtual environment
-├── requirements.txt                     # Python gereksinimleri
-├── .gitignore                           # Git ignore dosyası
-└── README.md                            # Bu dosya
-```
-
 ---
 
 ## 🔍 Kod Açıklamaları
